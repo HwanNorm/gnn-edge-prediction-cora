@@ -138,23 +138,6 @@ combined_embeddings = tf.concat([concat_embeddings, hadamard_embeddings, l1_embe
 - **Similar Performance**: Both models effectively solve the edge prediction task
 - **Rich Features**: Cora dataset's 1,433 features provide sufficient information for both approaches
 
-## 🔮 Future Enhancements
-
-### Scalability Improvements
-- **Mini-batch Training**: GraphSAINT or FastGCN for large graphs
-- **Distributed Computing**: Multi-GPU training for massive networks
-- **Memory Optimization**: Gradient checkpointing and mixed precision
-
-### Advanced Techniques
-- **Attention Mechanisms**: Graph attention networks (GAT) for weighted aggregation
-- **Deeper Architectures**: Residual connections to enable deeper GNNs
-- **Self-Supervised Learning**: Contrastive learning for better node representations
-
-### Domain-Specific Adaptations
-- **Temporal Networks**: Dynamic graph neural networks for time-evolving relationships
-- **Heterogeneous Graphs**: Multi-relation edge prediction with different node/edge types
-- **Explainable AI**: Attention visualization for interpretable edge predictions
-
 ## 📝 The Dataset I Used
 
 I worked with the **Cora citation dataset**, which contains:
