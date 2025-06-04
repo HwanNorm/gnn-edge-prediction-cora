@@ -40,7 +40,7 @@ The GNN works by having each paper "talk" to papers it cites and learn from them
 2. **Papers share information** with papers they cite or are cited by  
 3. **Papers update their understanding** based on what they learned from neighbors
 4. **This happens multiple times** to capture complex relationships
-5. **Finally, we predict** if two papers should be connected based on their updated features
+5. **Finally, I predict** if two papers should be connected based on their updated features
 
 ### Why This Is Useful
 - Regular neural networks only look at individual papers in isolation
