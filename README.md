@@ -40,7 +40,7 @@ The GNN works by having each paper "talk" to papers it cites and learn from them
 2. **Papers share information** with papers they cite or are cited by  
 3. **Papers update their understanding** based on what they learned from neighbors
 4. **This happens multiple times** to capture complex relationships
-5. **Finally, I predict** if two papers should be connected based on their updated features
+5. **Finally, we predict** if two papers should be connected based on their updated features
 
 ### Why This Is Useful
 - Regular neural networks only look at individual papers in isolation
@@ -93,6 +93,8 @@ The same techniques could potentially be adapted for:
 
 ## 🛠️ Technical Implementation
 
+## 🚀 How to Run This Project
+
 ### Requirements
 ```bash
 tensorflow>=2.8.0
@@ -100,6 +102,40 @@ numpy>=1.21.0
 pandas>=1.3.0
 scikit-learn>=1.0.0
 matplotlib>=3.5.0
+```
+
+### Installation
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/GNN-Edge-Prediction.git
+   cd GNN-Edge-Prediction
+   ```
+
+2. Install the required packages:
+   ```bash
+   pip install tensorflow numpy pandas scikit-learn matplotlib
+   ```
+
+### Usage
+Simply open and run the Jupyter notebook:
+```bash
+jupyter notebook GNN_Cora.ipynb
+```
+
+The notebook will:
+- Automatically download the Cora dataset
+- Train both DNN and GNN models
+- Display training progress and results
+- Show performance comparisons
+
+**Expected runtime**: About 5-10 minutes on a regular laptop (longer on first run due to dataset download)
+
+## 📁 Project Structure
+```
+GNN-Edge-Prediction/
+├── GNN_Cora.ipynb          # Main notebook with all code and analysis
+├── README.md               # This file
+└── requirements.txt        # Python dependencies (optional)
 ```
 
 ### Model Architecture Details
@@ -124,19 +160,29 @@ l1_embeddings = tf.abs(source_embeddings - target_embeddings)
 combined_embeddings = tf.concat([concat_embeddings, hadamard_embeddings, l1_embeddings], axis=1)
 ```
 
-## 📊 Evaluation Metrics
+## 📊 How I Measured Success
 
-### Performance Indicators
-- **Accuracy**: 99.94% for both models
-- **ROC AUC**: Perfect (1.0) for DNN, 99.94% for GNN
-- **Precision-Recall AUC**: Perfect (1.0) for DNN, 99.94% for GNN
-- **Training Stability**: Consistent convergence across multiple runs
+### Metrics Used
+- **Accuracy**: How often the model correctly predicted whether papers should cite each other (99.94%)
+- **ROC AUC**: How well the model separates positive and negative examples (near perfect)
+- **PR AUC**: How precise the model is when it predicts a citation should exist (near perfect)
 
-### Model Comparison Insights
-- **DNN Advantages**: Slightly faster training, perfect AUC scores
-- **GNN Advantages**: Natural graph structure exploitation, scalable to larger networks
-- **Similar Performance**: Both models effectively solve the edge prediction task
-- **Rich Features**: Cora dataset's 1,433 features provide sufficient information for both approaches
+### Why These Results Are Good
+- Both models learned very quickly and reached high accuracy
+- The validation performance was similar to training performance (no overfitting)
+- Results were consistent across different runs
+
+## 🔮 Possible Improvements
+
+### For Better Performance
+- Try different neural network architectures (deeper networks, attention mechanisms)
+- Test with other graph datasets to see how well the approach generalizes
+- Experiment with different ways of combining node features
+
+### For Larger Datasets
+- Implement mini-batch training for datasets that don't fit in memory
+- Add support for different types of relationships between nodes
+- Test on networks with millions of nodes and edges
 
 ## 📝 The Dataset I Used
 
